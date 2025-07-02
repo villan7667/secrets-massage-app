@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/header") %>
+  <title>Share Your Secret – SecretsHub</title>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  
+  <section class="form-section">
+    <form class="auth-form" action="/submit" method="POST" style="max-width: 600px;">
+      <h2>🤫 Share Your Secret</h2>
+      <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
+        Your secret will be shared anonymously. No one will know it's from you.
+      </p>
+      
+      <div class="form-group">
+        <label for="secret">Your Secret</label>
+        <textarea 
+          id="secret" 
+          name="secret" 
+          placeholder="Share what's on your mind... This is a safe space where you can be completely honest and anonymous."
+          required
+          style="min-height: 150px;"
+        ></textarea>
+        <small style="color: rgba(255,255,255,0.6); font-size: 0.8rem;">
+          💡 Tip: Be authentic. Others might relate to your experience.
+        </small>
+      </div>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0;">
+        <h4 style="color: white; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          🔒 Privacy Reminder
+        </h4>
+        <ul style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">
+          <li>✅ Your identity remains completely anonymous</li>
+          <li>✅ No personal information is stored or shared</li>
+          <li>✅ Your secret helps others feel less alone</li>
+          <li>⚠️ Please don't include names or identifying details</li>
+        </ul>
+      </div>
+      
+      <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">
+        🌟 Share Anonymously
+      </button>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="/secrets" style="color: rgba(255,255,255,0.8); text-decoration: none;">
+          👁️ View other secrets instead
+        </a>
+      </div>
+    </form>
+  </section>
+  
+  <%- include("partials/footer") %>
+</body>
+</html>

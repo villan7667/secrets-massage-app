@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <a href="/" class="logo">
+    🔐 SecretsHub
+  </a>
+  <ul class="nav-links">
+    <% if (!user) { %>
+      <li><a href="/" class="nav-link"> Home</a></li>
+      <li><a href="/secrets" class="nav-link"> Explore</a></li>
+      <li><a href="/login" class="nav-link"> Login</a></li>
+      <li><a href="/register" class="nav-link"> Register</a></li>
+    <% } else { %>
+      <li><a href="/" class="nav-link"> Home</a></li>
+      <li><a href="/secrets" class="nav-link"> Discover</a></li>
+      <li><a href="/submit" class="nav-link"> Share Secret</a></li>
+      <li><a href="/logout" class="nav-link"> Logout</a></li>
+    <% } %>
+  </ul>
+  <button id="toggleTheme" class="theme-toggle" title="Toggle Theme" aria-label="Toggle Dark/Light Mode">
+    🌙
+  </button>
+</nav>

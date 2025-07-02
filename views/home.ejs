@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/header") %>
+  <title>Home – SecretsHub | Share Your Secrets Anonymously</title>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>SecretsHub</span></h1>
+      <p>Your confidential space to speak your mind freely and anonymously.</p>
+      <p>Share your deepest thoughts, connect with others, and discover you're not alone.</p>
+      
+      <% if (!user) { %>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+          <a href="/register" class="btn">🚀 Get Started</a>
+          <a href="/secrets" class="btn" style="background: var(--hover-bg); backdrop-filter: blur(10px); border: 2px solid var(--border-color);">👁️ Explore Secrets</a>
+        </div>
+      <% } else { %>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+          <a href="/submit" class="btn">✨ Share a Secret</a>
+          <a href="/secrets" class="btn" style="background: var(--hover-bg); backdrop-filter: blur(10px); border: 2px solid var(--border-color);">🔍 Discover More</a>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+<section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+  <div style="text-align: center; margin-bottom: 3rem;">
+    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Why Choose SecretsHub?</h2>
+    <p style="font-size: 1.2rem; color: var(--text-secondary);">A safe, anonymous platform built for authentic human connection</p>
+  </div>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+    <div class="secret-card feature-card">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+      <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3rem;">100% Anonymous</h3>
+      <p style="color: var(--text-secondary);">Your identity is completely protected. Share without fear of judgment or exposure.</p>
+    </div>
+    
+    <div class="secret-card feature-card">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">💝</div>
+      <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3rem;">Safe Space</h3>
+      <p style="color: var(--text-secondary);">A judgment-free environment where you can express your true feelings and thoughts.</p>
+    </div>
+    
+    <div class="secret-card feature-card">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🌟</div>
+      <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3rem;">Connect & Heal</h3>
+      <p style="color: var(--text-secondary);">Discover that others share similar experiences. You're never truly alone.</p>
+    </div>
+  </div>
+</section>
+
+  <%- include("partials/footer") %>
+</body>
+</html>
