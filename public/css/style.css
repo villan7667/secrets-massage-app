@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+
 :root {
   /* Light Mode - Darker backgrounds for better contrast */
   --primary-color: #4c51bf;
@@ -16,9 +17,9 @@
   --info-color: #3182ce;
 
   /* Light mode uses darker backgrounds */
-  --bg-primary: #040507;
-  --bg-secondary: #1d2026;
-  --bg-card: rgba(28, 32, 39, 0.9);
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --bg-card: rgba(45, 55, 72, 0.9);
   --text-primary: #f7fafc;
   --text-secondary: #e2e8f0;
   --text-muted: #cbd5e0;
@@ -43,9 +44,9 @@ body.dark {
   --info-color: #63b3ed;
 
   /* Dark mode uses lighter backgrounds */
-  --bg-primary: #e793f4;
-  --bg-secondary: #b078c3;
-  --bg-card: rgba(217, 155, 246, 0.9);
+  --bg-primary: #f7fafc;
+  --bg-secondary: #edf2f7;
+  --bg-card: rgba(247, 250, 252, 0.9);
   --text-primary: #1a202c;
   --text-secondary: #2d3748;
   --text-muted: #4a5568;
