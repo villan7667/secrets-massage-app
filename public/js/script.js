@@ -283,21 +283,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.opacity = "0.7"
     document.body.style.transition = "opacity 0.3s ease"
   })
-  const body = document.body;
-const toggle = document.getElementById("toggle-mode");
-
-if (localStorage.getItem("mode") === "dark") {
-  body.classList.add("dark-mode");
-} else {
-  body.classList.add("light-mode");
-}
-
-toggle.addEventListener("click", () => {
-  if (body.classList.contains("dark-mode")) {
-    body.classList.replace("dark-mode", "light-mode");
-    localStorage.setItem("mode", "light");
-  } else {
-    body.classList.replace("light-mode", "dark-mode");
-    localStorage.setItem("mode", "dark");
-  }
-});
+  
