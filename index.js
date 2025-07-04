@@ -1,4 +1,4 @@
-// index.js (FINAL VERSION)
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -10,12 +10,12 @@ const path = require("path");
 
 const app = express();
 
-// --- App Config ---
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// --- Session & Passport Config ---
+
 app.use(session({
   secret: "Our little secret.",
   resave: false,
@@ -24,10 +24,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// --- Mongoose Connect ---
+
 mongoose.connect("mongodb+srv://hsgf7667:villan7667@cluster7667.h95hy.mongodb.net/secretApp");
 
-// --- Schemas ---
+
 const userSchema = new mongoose.Schema({
   email: String,
   password: String
@@ -42,12 +42,12 @@ const secretSchema = new mongoose.Schema({
 });
 const Secret = mongoose.model("Secret", secretSchema);
 
-// --- Passport Strategies ---
+
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// --- Routes ---
+
 
 app.get("/", (req, res) => res.render("home", { user: req.user }));
 
