@@ -4,7 +4,7 @@
 
 
 :root {
-  /* Light Mode - Darker backgrounds for better contrast */
+ 
   --primary-color: #4c51bf;
   --primary-dark: #3730a3;
   --secondary-color: #553c9a;
@@ -16,7 +16,7 @@
   --warning-color: #d69e2e;
   --info-color: #3182ce;
 
-  /* Light mode uses darker backgrounds */
+ 
   --bg-primary: #1a202c;
   --bg-secondary: #2d3748;
   --bg-card: rgba(45, 55, 72, 0.9);
@@ -31,7 +31,7 @@
 }
 
 body.dark {
-  /* Dark Mode - Lighter backgrounds for better contrast */
+  
   --primary-color: #90cdf4;
   --primary-dark: #63b3ed;
   --secondary-color: #b794f6;
@@ -43,7 +43,7 @@ body.dark {
   --warning-color: #f6e05e;
   --info-color: #63b3ed;
 
-  /* Dark mode uses lighter backgrounds */
+ 
   --bg-primary: #f7fafc;
   --bg-secondary: #edf2f7;
   --bg-card: rgba(247, 250, 252, 0.9);
@@ -77,7 +77,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated Background */
+
 .animated-bg {
   position: fixed;
   top: 0;
@@ -113,7 +113,7 @@ body.dark .animated-bg {
   }
 }
 
-/* Floating Particles */
+
 .particles {
   position: fixed;
   top: 0;
@@ -201,7 +201,7 @@ body.dark .animated-bg {
   }
 }
 
-/* Navigation - Fixed Hover Effects */
+
 .navbar {
   background: var(--navbar-bg);
   backdrop-filter: blur(25px);
@@ -359,7 +359,7 @@ body.dark .animated-bg {
   font-weight: 400;
 }
 
-/* Enhanced Button Styles */
+
 .btn {
   display: inline-block;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -407,7 +407,7 @@ body.dark .animated-bg {
   transform: translateY(-1px);
 }
 
-/* Form Sections - Enhanced Visibility */
+
 .form-section {
   min-height: 90vh;
   display: flex;
@@ -493,7 +493,7 @@ body.dark .form-group textarea:focus {
   box-shadow: 0 0 0 3px rgba(144, 205, 244, 0.1);
 }
 
-/* Secrets Page */
+
 .secrets-page {
   padding: 2rem;
   max-width: 1200px;
@@ -527,7 +527,7 @@ body.dark .form-group textarea:focus {
   list-style: none;
 }
 
-/* Secret Cards - Enhanced Hover Effects */
+
 .secret-card {
   background: var(--glass-bg);
   backdrop-filter: blur(25px);
@@ -622,7 +622,7 @@ body.dark .secret-card:hover {
 }
 
 
-/* Footer - Enhanced Visibility */
+
 .footer {
   background: var(--glass-bg);
   backdrop-filter: blur(25px);
@@ -696,7 +696,7 @@ body.dark .secret-card:hover {
   font-size: 0.9rem;
 }
 
-/* Animations */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -730,7 +730,7 @@ body.dark .secret-card:hover {
   }
 }
 
-/* Loading Animation */
+
 .loading {
   display: inline-block;
   width: 20px;
@@ -747,7 +747,7 @@ body.dark .secret-card:hover {
   }
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .navbar {
     padding: 0.75rem 1rem;
@@ -805,7 +805,7 @@ body.dark .secret-card:hover {
   }
 }
 
-/* Custom Scrollbar */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -823,7 +823,7 @@ body.dark .secret-card:hover {
   background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
 }
 
-/* Success/Error Messages */
+
 .message {
   padding: 1rem;
   border-radius: 10px;
@@ -844,7 +844,7 @@ body.dark .secret-card:hover {
   color: #ef4444;
 }
 
-/* Pulse Animation for Interactive Elements */
+
 .pulse {
   animation: pulse 2s infinite;
 }
@@ -861,7 +861,7 @@ body.dark .secret-card:hover {
   }
 }
 
-/* Enhanced Gradient Backgrounds */
+
 .gradient-primary {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
@@ -878,9 +878,6 @@ body.dark .secret-card:hover {
   background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
 }
 
-/* Enhanced Card Hover Effects */
-
-/* Enhanced Glass Effect */
 .glass-effect {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
@@ -894,7 +891,6 @@ body.dark .glass-effect {
 }
 
 
-/* Secret Cards Animation */
 .secret-card {
     opacity: 0;
     transform: translateY(20px);
@@ -928,7 +924,7 @@ body.dark .glass-effect {
     color: #000;
   }
   
-  /* Edit Secret Page Styles */
+
   .edit-secret-section {
     min-height: 80vh;
     display: flex;
@@ -1021,4 +1017,4 @@ body.dark .glass-effect {
       font-size: 1.3rem;
     }
   }
-  /* New style to keep edit/delete buttons in one row */
+ 
