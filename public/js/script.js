@@ -1,13 +1,13 @@
-// Enhanced Theme Toggle Functionality
+
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("toggleTheme")
     const body = document.body
     const navbar = document.querySelector(".navbar")
   
-    // Check for saved theme preference or default to light mode
+ 
     const currentTheme = localStorage.getItem("theme") || "light"
   
-    // Apply saved theme on load
+
     if (currentTheme === "dark") {
       body.classList.add("dark")
       if (themeToggle) themeToggle.textContent = "☀️"
@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (themeToggle) themeToggle.textContent = "🌙"
     }
   
-    // Theme toggle event listener with smooth transition
+
     if (themeToggle) {
       themeToggle.addEventListener("click", (e) => {
         e.preventDefault()
   
-        // Add transition class for smooth change
+        
         body.style.transition = "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
   
         body.classList.toggle("dark")
@@ -36,14 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
           themeToggle.setAttribute("title", "Switch to Dark Mode")
         }
   
-        // Remove transition after change
+      
         setTimeout(() => {
           body.style.transition = ""
         }, 400)
       })
     }
   
-    // Navbar scroll effect
+    
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
         navbar.classList.add("scrolled")
@@ -52,17 +52,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   
-    // Create floating particles
+    
     createParticles()
   
-    // Form animations
+   
     initFormAnimations()
   
-    // Secret cards animations
+   
     initSecretAnimations()
   })
   
-  // Create floating particles
+
   function createParticles() {
     const particlesContainer = document.createElement("div")
     particlesContainer.className = "particles"
@@ -78,12 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-  // Form animations and validation
+
   function initFormAnimations() {
     const inputs = document.querySelectorAll("input, textarea")
   
     inputs.forEach((input) => {
-      // Focus animations
+   
       input.addEventListener("focus", function () {
         this.parentElement.classList.add("focused")
       })
@@ -94,13 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       })
   
-      // Real-time validation
+
       input.addEventListener("input", function () {
         validateField(this)
       })
     })
   
-    // Form submission with loading state
+
     const forms = document.querySelectorAll("form")
     forms.forEach((form) => {
       form.addEventListener("submit", function (e) {
@@ -113,13 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
   
-  // Field validation
+
   function validateField(field) {
     const value = field.value.trim()
     const fieldType = field.type
     const fieldName = field.name
   
-    // Remove existing error messages
+    
     const existingError = field.parentElement.querySelector(".error-message")
     if (existingError) {
       existingError.remove()
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isValid = true
     let errorMessage = ""
   
-    // Validation rules
+  
     if (fieldType === "email") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
       if (value && !emailRegex.test(value)) {
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       errorMessage = "Username must be at least 3 characters long"
     }
   
-    // Show error message
+ 
     if (!isValid) {
       const errorDiv = document.createElement("div")
       errorDiv.className = "error-message"
@@ -165,11 +165,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return isValid
   }
   
-  // Secret cards animations
+
   function initSecretAnimations() {
     const secretCards = document.querySelectorAll(".secret-card")
   
-    // Intersection Observer for scroll animations
+   
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     secretCards.forEach((card) => {
       observer.observe(card)
   
-      // Add hover effects
+  
       card.addEventListener("mouseenter", function () {
         this.style.transform = "translateY(-10px) scale(1.02)"
       })
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
   
-  // Smooth scrolling for anchor links
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault()
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
   
-  // Add ripple effect to buttons
+ 
   function addRippleEffect() {
     const buttons = document.querySelectorAll(".btn, button")
   
@@ -238,10 +238,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
   
-  // Initialize ripple effect
+
   addRippleEffect()
   
-  // Add CSS for ripple effect
+
   const rippleCSS = `
   .btn, button {
       position: relative;
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
   style.textContent = rippleCSS
   document.head.appendChild(style)
   
-  // Auto-hide messages after 5 seconds
+
   setTimeout(() => {
     const messages = document.querySelectorAll(".message")
     messages.forEach((message) => {
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }, 5000)
   
-  // Add loading animation to page transitions
+
   window.addEventListener("beforeunload", () => {
     document.body.style.opacity = "0.7"
     document.body.style.transition = "opacity 0.3s ease"
