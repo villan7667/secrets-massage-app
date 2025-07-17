@@ -136,18 +136,19 @@ document.addEventListener("DOMContentLoaded", () => {
         errorMessage = "Please enter a valid email address"
       }
     }
-  
-    if (fieldName === "password" && value.length > 0 && value.length < 6) {
-      isValid = false
-      errorMessage = "Password must be at least 6 characters long"
+  if (fieldName === "password" && value.length > 0) {
+    // Password must be at least 8 characters, contain one uppercase, one lowercase, one digit, and one symbol
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/
+    if (!passwordRegex.test(value)) {
+    isValid = false
+    errorMessage = "Password must be at least 8 characters and include uppercase, lowercase, number, and symbol"
     }
-  
-    if (fieldName === "username" && value.length > 0 && value.length < 3) {
-      isValid = false
-      errorMessage = "Username must be at least 3 characters long"
-    }
-  
- 
+  }
+
+  if (fieldName === "username" && value.length > 0 && value.length < 3) {
+    isValid = false
+    errorMessage = "Username must be at least 3 characters long"
+  }
     if (!isValid) {
       const errorDiv = document.createElement("div")
       errorDiv.className = "error-message"
