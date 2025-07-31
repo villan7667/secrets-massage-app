@@ -1,21 +1,33 @@
-<nav class="navbar">
-  <a href="/" class="logo">
-    🔐 SecretsHub
-  </a>
-  <ul class="nav-links">
-    <% if (!user) { %>
-      <li><a href="/" class="nav-link"> Home</a></li>
-      <li><a href="/secrets" class="nav-link"> Explore</a></li>
-      <li><a href="/login" class="nav-link"> Login</a></li>
-      <li><a href="/register" class="nav-link"> Register</a></li>
-    <% } else { %>
-      <li><a href="/" class="nav-link"> Home</a></li>
-      <li><a href="/secrets" class="nav-link"> Discover</a></li>
-      <li><a href="/submit" class="nav-link"> Share Secret</a></li>
-      <li><a href="/logout" class="nav-link"> Logout</a></li>
-    <% } %>
-  </ul>
-  <button id="toggleTheme" class="theme-toggle" title="Toggle Theme" aria-label="Toggle Dark/Light Mode">
-    🌙
-  </button>
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <span class="logo-icon">🔐</span>
+      <span class="logo-text">SecretsHub</span>
+    </a>
+
+    <button id="menu-toggle" class="hamburger" aria-label="Toggle navigation menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <ul id="nav-links" class="nav-links">
+      <% if (!user) { %>
+        <li><a href="/" class="nav-link"> Home</a></li>
+        <li><a href="/secrets" class="nav-link"> Explore</a></li>
+        <li><a href="/login" class="nav-link"> Login</a></li>
+        <li><a href="/register" class="nav-link"> Register</a></li>
+      <% } else { %>
+        <li><a href="/" class="nav-link"> Home</a></li>
+        <li><a href="/secrets" class="nav-link"> Discover</a></li>
+        <li><a href="/submit" class="nav-link"> Share Secret</a></li>
+        <li><a href="/logout" class="nav-link logout-link"> Logout</a></li>
+      <% } %>
+    </ul>
+
+    <button id="toggleTheme" class="theme-toggle" title="Switch to Light Mode">
+      <span class="theme-icon">🌙</span>
+    </button>
+    
+  </div>
 </nav>

@@ -2,39 +2,116 @@
 <html lang="en">
 <head>
   <%- include("partials/header") %>
-  <title>Login – SecretsHub</title>
+  <title><%= title %></title>
 </head>
 <body>
+  <!-- Galaxy Theme Background -->
+  <div class="galaxy-background">
+    <div class="stars-layer-1"></div>
+    <div class="stars-layer-2"></div>
+    <div class="stars-layer-3"></div>
+    <div class="nebula-overlay"></div>
+  </div>
+
   <%- include("partials/navbar") %>
-  
-  <section class="form-section">
-    <form class="auth-form" action="/login" method="POST">
-      <h2>🔐 Welcome Back</h2>
-      <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Sign in to access your secret space</p>
-      
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+  <!-- Login Section -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-form-wrapper">
+        <div class="auth-header">
+          <div class="auth-icon"></div>
+          <h2 class="auth-title">Welcome Back</h2>
+          <p class="auth-subtitle">Log in to your private corner of SecretsHub</p>
+        </div>
+
+        <% if (error) { %>
+          <div class="error-message">
+            <span class="error-icon"></span>
+            <%= error %>
+          </div>
+        <% } %>
+
+        <form 
+          action="/login" 
+          method="POST" 
+          class="auth-form" 
+          id="loginForm"
+        >
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <div class="input-wrapper">
+              <span class="input-icon"></span>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input" 
+                placeholder="Enter your email" 
+                required 
+                autocomplete="email"
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-wrapper">
+              <span class="input-icon"></span>
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                class="form-input" 
+                placeholder="Enter your password" 
+                required 
+                autocomplete="current-password"
+              >
+              <button 
+                type="button" 
+                class="password-toggle" 
+                id="togglePassword"
+              >
+                <span class="toggle-icon"></span>
+              </button>
+            </div>
+          </div>
+
+          <button 
+            type="submit" 
+            class="btn btn-primary btn-full" 
+            id="loginBtn"
+          >
+            <span class="btn-loading" style="display: none;">
+              <span class="loading-spinner"></span>
+              Signing In...
+            </span>
+            <span class="btn-text">
+              <span class="btn-icon"></span>
+              Sign In
+            </span>
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p class="auth-switch">
+            Don’t have an account?
+            <a href="/register" class="auth-link">Create one here</a>
+          </p>
+        </div>
+
+        <div class="privacy-notice">
+          <div class="privacy-icon"></div>
+          <p class="privacy-text">
+            We care about your privacy. Everything is encrypted and securely handled.
+          </p>
+        </div>
       </div>
-      
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-      </div>
-      
-      <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">
-        🚀 Sign In
-      </button>
-      
-      <div style="text-align: center; margin-top: 2rem;">
-        <p style="color: rgba(255,255,255,0.8);">
-          Don't have an account? 
-          <a href="/register" style="color: #f59e0b; text-decoration: none; font-weight: 600;">Create one here</a>
-        </p>
-      </div>
-    </form>
+    </div>
   </section>
-  
+
   <%- include("partials/footer") %>
+
+  <script src="/js/script.js"></script>
 </body>
 </html>

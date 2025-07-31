@@ -1,60 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include("partials/header") %>
-  <title>Home – SecretsHub | Share Your Secrets Anonymously</title>
+  <title><%= title %></title>
 </head>
+
 <body>
+  <!-- Background with galaxy and stars -->
+  <div class="galaxy-background">
+    <div class="stars-layer-1"></div>
+    <div class="stars-layer-2"></div>
+    <div class="stars-layer-3"></div>
+    <div class="nebula-overlay"></div>
+  </div>
+
   <%- include("partials/navbar") %>
-  
+
+  <!-- Landing Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Welcome to <span>SecretsHub</span></h1>
-      <p>Your confidential space to speak your mind freely and anonymously.</p>
-      <p>Share your deepest thoughts, connect with others, and discover you're not alone.</p>
-      
-      <% if (!user) { %>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-          <a href="/register" class="btn">🚀 Get Started</a>
-          <a href="/secrets" class="btn" style="background: var(--hover-bg); backdrop-filter: blur(10px); border: 2px solid var(--border-color);">👁️ Explore Secrets</a>
+      <div class="hero-animation">
+        <h1 class="hero-title">
+          Welcome to <span class="gradient-text">SecretsHub</span>
+        </h1>
+        <p class="hero-subtitle">
+          A safe place where you can express your thoughts freely and anonymously.
+        </p>
+        <p class="hero-description">
+          Whether it’s a hidden story or a personal struggle — share, connect, and feel seen.
+        </p>
+
+        <div class="hero-buttons">
+          <% if (!user) { %>
+            <a href="/register" class="btn btn-primary">Get Started</a>
+            <a href="/secrets" class="btn btn-secondary">Explore Secrets</a>
+          <% } else { %>
+            <a href="/submit" class="btn btn-primary">Share a Secret</a>
+            <a href="/secrets" class="btn btn-secondary">Discover More</a>
+          <% } %>
         </div>
-      <% } else { %>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-          <a href="/submit" class="btn">✨ Share a Secret</a>
-          <a href="/secrets" class="btn" style="background: var(--hover-bg); backdrop-filter: blur(10px); border: 2px solid var(--border-color);">🔍 Discover More</a>
-        </div>
-      <% } %>
+      </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-<section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
-  <div style="text-align: center; margin-bottom: 3rem;">
-    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Why Choose SecretsHub?</h2>
-    <p style="font-size: 1.2rem; color: var(--text-secondary);">A safe, anonymous platform built for authentic human connection</p>
-  </div>
-  
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-    <div class="secret-card feature-card">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
-      <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3rem;">100% Anonymous</h3>
-      <p style="color: var(--text-secondary);">Your identity is completely protected. Share without fear of judgment or exposure.</p>
+  <!-- Highlights Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-header">
+        <h2 class="section-title">Why Choose SecretsHub?</h2>
+        <p class="section-subtitle">Built with care to let you be your true self, safely and anonymously.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">Fully Anonymous</h3>
+          <p class="feature-description">
+            We never track your identity. Post freely without worrying about being exposed.
+          </p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon">💝</div>
+          <h3 class="feature-title">Supportive Community</h3>
+          <p class="feature-description">
+            A warm, no-judgment zone where you can talk honestly and be heard.
+          </p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon">🌟</div>
+          <h3 class="feature-title">Real Connection</h3>
+          <p class="feature-description">
+            Read real stories, relate, and realize you're part of something bigger.
+          </p>
+        </div>
+      </div>
     </div>
-    
-    <div class="secret-card feature-card">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">💝</div>
-      <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3rem;">Safe Space</h3>
-      <p style="color: var(--text-secondary);">A judgment-free environment where you can express your true feelings and thoughts.</p>
-    </div>
-    
-    <div class="secret-card feature-card">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">🌟</div>
-      <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3rem;">Connect & Heal</h3>
-      <p style="color: var(--text-secondary);">Discover that others share similar experiences. You're never truly alone.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <%- include("partials/footer") %>
+
+  <script src="/js/script.js"></script>
 </body>
+
 </html>

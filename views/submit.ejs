@@ -2,56 +2,101 @@
 <html lang="en">
 <head>
   <%- include("partials/header") %>
-  <title>Share Your Secret – SecretsHub</title>
+  <title><%= title %></title>
 </head>
 <body>
+  <!-- Galaxy Background -->
+  <div class="galaxy-background">
+    <div class="stars-layer-1"></div>
+    <div class="stars-layer-2"></div>
+    <div class="stars-layer-3"></div>
+    <div class="nebula-overlay"></div>
+  </div>
+
   <%- include("partials/navbar") %>
-  
-  <section class="form-section">
-    <form class="auth-form" action="/submit" method="POST" style="max-width: 600px;">
-      <h2>🤫 Share Your Secret</h2>
-      <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
-        Your secret will be shared anonymously. No one will know it's from you.
-      </p>
-      
-      <div class="form-group">
-        <label for="secret">Your Secret</label>
-        <textarea 
-          id="secret" 
-          name="secret" 
-          placeholder="Share what's on your mind... This is a safe space where you can be completely honest and anonymous."
-          required
-          style="min-height: 150px;"
-        ></textarea>
-        <small style="color: rgba(255,255,255,0.6); font-size: 0.8rem;">
-          💡 Tip: Be authentic. Others might relate to your experience.
-        </small>
+
+  <section class="submit-section">
+    <div class="container">
+      <div class="submit-container">
+        <div class="submit-header">
+          <div class="submit-icon">🤫</div>
+          <h1 class="submit-title">Share Your Secret</h1>
+          <p class="submit-subtitle">
+            Express yourself freely and anonymously. Your identity is completely protected.
+          </p>
+        </div>
+
+        <% if (error) { %>
+          <div class="error-message">
+            <span class="error-icon">⚠️</span>
+            <%= error %>
+          </div>
+        <% } %>
+
+        <form action="/submit" method="POST" class="submit-form" id="submitForm">
+          <div class="form-group">
+            <label for="secret" class="form-label">What's on your mind?</label>
+            <div class="textarea-wrapper">
+              <textarea 
+                id="secret" 
+                name="secret" 
+                class="form-textarea" 
+                placeholder="Share your thoughts, feelings, or experiences anonymously..."
+                required
+                maxlength="1000"
+                rows="8"
+              ></textarea>
+              <div class="character-count">
+                <span id="charCount">0</span>/1000
+              </div>
+            </div>
+            <div class="field-hint">
+              Your secret will be shared completely anonymously
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <span class="btn-loading" style="display: none;">
+                <span class="loading-spinner"></span>
+                Sharing...
+              </span>
+              <span class="btn-text">
+                Share Secret
+              </span>
+            </button>
+            
+            <a href="/secrets" class="btn btn-secondary">
+              Cancel
+            </a>
+          </div>
+        </form>
+
+        <div class="privacy-notice">
+          <div class="privacy-header">
+            <h3 class="privacy-title">Privacy Notice</h3>
+          </div>
+          <p class="privacy-text">
+            Your secret will be posted anonymously. No personal information will be shared or stored with your message. 
+            Only you can edit or delete your secrets.
+          </p>
+        </div>
+
+        <div class="guidelines">
+          <div class="guidelines-header">
+            <h3 class="guidelines-title">Community Guidelines</h3>
+          </div>
+          <ul class="guidelines-list">
+            <li>Be respectful and kind to others</li>
+            <li>No hate speech or harassment</li>
+            <li>Keep content appropriate and legal</li>
+            <li>Respect others' privacy and anonymity</li>
+          </ul>
+        </div>
       </div>
-      
-      <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0;">
-        <h4 style="color: white; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-          🔒 Privacy Reminder
-        </h4>
-        <ul style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">
-          <li>✅ Your identity remains completely anonymous</li>
-          <li>✅ No personal information is stored or shared</li>
-          <li>✅ Your secret helps others feel less alone</li>
-          <li>⚠️ Please don't include names or identifying details</li>
-        </ul>
-      </div>
-      
-      <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">
-        🌟 Share Anonymously
-      </button>
-      
-      <div style="text-align: center; margin-top: 2rem;">
-        <a href="/secrets" style="color: rgba(255,255,255,0.8); text-decoration: none;">
-          👁️ View other secrets instead
-        </a>
-      </div>
-    </form>
+    </div>
   </section>
-  
-  <%- include("partials/footer") %>
+
+  <script src="/js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/header") %>
+  <title><%= title %></title>
+</head>
+<body>
+  <!-- Galaxy Background -->
+  <div class="galaxy-background">
+    <div class="stars-layer-1"></div>
+    <div class="stars-layer-2"></div>
+    <div class="stars-layer-3"></div>
+    <div class="nebula-overlay"></div>
+  </div>
+
+  <%- include("partials/navbar") %>
+
+  <section class="error-section">
+    <div class="container">
+      <div class="error-container">
+        <div class="error-content">
+          <div class="error-icon">🚨</div>
+          <h1 class="error-title">Oops! Something went wrong</h1>
+          <p class="error-message"><%= error %></p>
+          
+          <div class="error-actions">
+            <a href="/" class="btn btn-primary">
+              <span class="btn-icon">🏠</span>
+              Go Home
+            </a>
+            <button onclick="history.back()" class="btn btn-secondary">
+              <span class="btn-icon">⬅️</span>
+              Go Back
+            </button>
+          </div>
+        </div>
+
+        <div class="error-illustration">
+          <div class="floating-elements">
+            <div class="element element-1">🌟</div>
+            <div class="element element-2">✨</div>
+            <div class="element element-3">💫</div>
+            <div class="element element-4">🌙</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .error-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      margin-top: 80px;
+    }
+
+    .error-container {
+      text-align: center;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .error-content {
+      background: var(--glass-bg);
+      backdrop-filter: blur(25px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 3rem;
+      box-shadow: var(--shadow-xl);
+      animation: slideInUp 0.8s ease-out;
+    }
+
+    .error-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.5));
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .error-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ef4444, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .error-message {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .error-illustration {
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      right: -50px;
+      bottom: -50px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-elements {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .element {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    .element-1 {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .element-2 {
+      top: 20%;
+      right: 15%;
+      animation-delay: 1.5s;
+    }
+
+    .element-3 {
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 3s;
+    }
+
+    .element-4 {
+      bottom: 10%;
+      right: 10%;
+      animation-delay: 4.5s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .error-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .error-title {
+        font-size: 2rem;
+      }
+
+      .error-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+  </style>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
