@@ -1,12 +1,4 @@
 # 🔐 Secrets Web Application
-its me old Ankit <!-- hsgf@7667 -->
-![image](https://github.com/user-attachments/assets/4a4b07ed-70fe-4367-a053-c6e6381692fc)
-
-
-
-> A secure, modern web application that allows users to register, log in, and anonymously post fun or personal secrets. Built with robust authentication and stylish UI for a fun and safe experience.
-
----
 
 ## 🔗 Live Demo
 
@@ -18,6 +10,16 @@ its me old Ankit <!-- hsgf@7667 -->
 
 
 ---
+ <!-- hsgf@7667 -->
+<img width="1904" height="850" alt="image" src="https://github.com/user-attachments/assets/97e4fa84-a8ed-4834-8387-59ee04e51dbe" />
+
+
+
+
+> A secure, modern web application that allows users to register, log in, and anonymously post fun or personal secrets. Built with robust authentication and stylish UI for a fun and safe experience.
+
+---
+
 
 ## 🛡️ Features
 
