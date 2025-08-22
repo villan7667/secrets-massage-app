@@ -1,10 +1,9 @@
 function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    req.session.returnTo = req.originalUrl;
-    res.redirect("/login");
+  if (req.isAuthenticated && req.isAuthenticated()) {
+    return next();
   }
-  
-  module.exports = { ensureAuthenticated };
-  
+  req.session.returnTo = req.originalUrl;
+  return res.redirect("/login");
+}
+
+module.exports = { ensureAuthenticated };

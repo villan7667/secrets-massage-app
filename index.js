@@ -11,48 +11,61 @@ const path = require("path");
 // Passport Config
 require("./app/config/passport")(passport);
 
-// Connect MongoDB
+// DB Connect
+const mongoUri = process.env.MONGODB_URI ;
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/secretsHub")
-  .then(() => console.log(" MongoDB Connected"))
-  .catch((err) => console.error(" DB Connection Error:", err));
+  .connect(mongoUri)
+  .then(() => console.log(" MongoDB connected done!"))
+  .catch((err) => console.error(" MongoDB error:", err.message));
 
-// Middleware
+// View Static
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
+
+// Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "Our-Super-Secret-Key-2024",
+    secret: process.env.SESSION_SECRET ,
     resave: false,
     saveUninitialized: false,
+    cookie: { maxAge: 24 * 60 * 60 * 1000, secure: false },
   })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
 
 // Routes
 app.use("/", require("./app/routes/authRoutes"));
 app.use("/", require("./app/routes/secretRoutes"));
 
-// Error $ Handler
+// Error handler `
 app.use((err, req, res, next) => {
   console.error("Error:", err);
-  res
-    .status(500)
-    .render("error", { title: "Error", error: "Something went wrong!" });
-});
-app.use((req, res) => {
-  res
-    .status(404)
-    .render("error", { title: "Not Found", error: "Page not found!" });
+  res.status(500).render("error", {
+    title: "Error - SecretsHub",
+    error: "Something went wrong!",
+    user: req.user || null,
+  });
 });
 
-// Start Server
+// 404 — also passes `user`
+app.use((req, res) => {
+  res.status(404).render("error", {
+    title: "Page Not Found - SecretsHub",
+    error: "Page not found!",
+    user: req.user || null,
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(` Server running on http://localhost:${PORT}`);
 });
